@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Introduction to Machine Learning</title>
+    <meta name="description" content="A one hour introduction to machine learning with an example.">
+    <meta name="author" content="Wesam Elshamy">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <section class="slides">
+        <section>
+            <h2>Non Technical Introduction to Machine Learning</h2>
+            <p>Wesam Elshamy, Data Scientist</p>
+            <img src="media/ml_cover.jpg" width="600" style="background:none; border:none; box-shadow:none;"><br>
+            <img src="media/sweetbridge_logo.png" width="200" style="background:none; border:none; box-shadow:none;">
+            <aside class="notes">
+                <p>I'm Wesam Elshamy, data scientist (machine learning) by training.</p>
+                <p>Worked at American Express.  Before that, CS grad school doing ML research.</p>
+                <p>Please ask questions or give comments any time.  This is informal.</p>
+            </aside>
+
+        </section>
+
+        <section>
+            <h4>What is Machine Learning?</h4>
+            <section>
+                <p>Netflix learns your taste in movies.</p>
+                <img src="media/netflix.png" width="600">
+                <aside class="notes">
+                    <p>Netflix updates your movies taste profile based on your behavior on their website:</p>
+                    <p>Start watching, (not) watching to the end, dis/like, add to list.</p>
+                    <p>See the % match?</p>
+                    <p>Netflix 2006 million $ challenge: predict user taste based on past likes.</p>
+                </aside>
+            </section>
+
+            <section>
+                <p>So does YouTube.</p>
+                <img src="media/youtube_page.png" width="600">
+                <aside class="notes">
+                    <p>YouTube even has more data on you from your other Google services.</p>
+                    <p>Comment on videos, playlists, share activity</p>
+                    <p>YouTube has targeted ads.</p>
+                </aside>
+            </section>
+
+            <section>
+                <p>Alexa, Customer service, ...</p>
+                <img src="media/alexa.jpg" width="300">
+                <img src="media/customer_service.jpg" width="400">
+                <aside class="notes">
+                    <p>Adapt to your voice and most used commands.</p>
+                    <p>Getting better every day.  Compare to 5 years ago.</p>
+                </aside>
+            </section>
+
+            <section>
+                <p>Facebook, Google Photos, ...</p>
+                <img src="media/facebook-facial-recognition.png" width="500">
+                <aside class="notes">
+                    <p>Facebook knows your friends. More likely to be in your pics</p>
+                    <p>What's in the picture? Cat, 4 tables, car, human, ...</p>
+                    <p>Who is in the picture? Nancy, Jack, Wesam</p>
+                    <p>Is this an explicit image?</p>
+                </aside>
+            </section>
+
+            <section>
+                <p>Program that incrementally <em>learn</em> from and</p>
+                <p>identify patterns in data.</p>
+                <img src="media/pattern_recognition.jpeg" width="500">
+                <aside class="notes">
+                    <p>Google Maps <em>learns</em> that you visit Taco Bell on Tuesdays.</p>
+                    <p>Smart phone text auto complete learns and shows you most likely words to type next.</p>
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <h4>History of Machine Learning</h4>
+            <section>
+                <h6>Turing test</h6>
+                <p>Alan Turing (1950).</p>
+                <img src="media/alan_turing.jpg" width="200">
+                <img src="media/turing_test.png" width="300">
+                <aside class="notes">
+                    <p>Interrogator (C) try to determine which player, A or B is a computer, and which is human.</p>
+                    <p>Interactions are limited to responses to written questions.</p>
+                    <p>Beginnings of artificial intelligence field.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Computer Checkers</h6>
+                <p>Arthur Samuel @ IBM (1952).</p>
+                <img src="media/arthur_samuel.jpg" width="500">
+                <aside class="notes">
+                    <p>Computer gets better as it plays more games.</p>
+                    <p>It <em>learned</em> winning strategies and used it in future games.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Artificial Neural Networks</h6>
+                <p>Frank Rosenblatt @ Cornell (1957).</p>
+                <img src="media/frank_rosenblatt.jpg" width="300">
+                <aside class="notes">
+                    <p>Mimic human brain with its 100 billions neurons.</p>
+                    <p>First built with wires.  Now </p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>NETtalk</h6>
+                <p>Terry Sejnowski @ Cornell (1985).</p>
+                <img src="media/sejnowski.jpg" width="250">
+                <aside class="notes">
+                    <p>The theoretical physicist built a machine that taught itself how to pronounce
+                        20,000 words in one week.  The first words sounded like gibberish, but with
+                        training the words became clearer.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Deep Blue</h6>
+                <p>Beats Kasparov (1997).</p>
+                <img src="media/deepblue.png" width="500">
+                <aside class="notes">
+                    <p>The first time a human expert is beaten by computer in chess.</p>
+                    <p>IBM declined Garry's request for a rematch and retired Deep Blue.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Netflix $1M prize</h6>
+                <p>Winner: BellKor's Pragmatic Chaos (2009).</p>
+                <img src="media/netflix_prize.jpg" width="500">
+                <aside class="notes">
+                    <p>Netflix offered $1M for anyone who beats its algorithm for predicting its users movie ratings.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Project Adam</h6>
+                <p>Beat humans at object identification in images (2014).</p>
+
+                <img src="media/project_adam.jpg" width="500">
+                <aside class="notes">
+                    <p>This Microsoft project showed that machines can beat humans at fine grained categorization of objects.</p>
+                    <p>Better than humans in identifying animal breeds, among other specialized categories.</p>
+                    <p>We are now used to hearing stories of computers beating humans at tasks requiring some specialized intelligence.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Machine learning everywhere</h6>
+                <p>You just may not know it's in use.</p>
+                <img src="media/ml_companies.jpeg" width="500">
+                <aside class="notes">
+                    <p>Now used in fraud prevention & detection.  Filtering explicit images.</p>
+                    <p>Tagging your friends in Facebook photos, cyber security, ...</p>
+                </aside>
+            </section>
+        </section>
+
+
+        <section id="kmeans">
+            <h4>Example: K-means</h4>
+            <section>
+                <p>Simple clustering algorithm</p>
+                <p>Group <em>similar</em> points together.  No labels.</p>
+                <p>Stuart Lloyd (1957) & E Forgy (1965)</p>
+                <img src="media/clustering.gif" width="400">
+                <aside class="notes">
+                    <p>Let's see how a simple ML algorithm work.</p>
+                    <p>Developed independently by the two scientists.</p>
+                    <p>Simple and efficient.  May not fit advanced real world applications.</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-0.png">
+                <aside class="notes">
+                    <p>We want to cluster points into <em>3</em> clusters.</p>
+                    <p>Random cluster center initialization.</p>
+                    <p>Number of clusters is algorithm parameter.  Depends on need and application.</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-1.png">
+                <aside class="notes">
+                    <p>Assign points to nearest cluster center point.</p>
+                    <p>Point color denotes assigned cluster.</p>
+                    <p>Find center <em>(mean)</em> of points in the same cluster.</p>
+                    <p>Update cluster centers.</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-2.png">
+                <aside class="notes">
+                    <p>Repeat: assign every point to nearest cluster center.</p>
+                    <p>Calculate new cluster means.</p>
+                    <p>Update cluster centers.</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-5.png">
+                <aside class="notes">
+                    <p>Repeat...</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-6.png">
+                <aside class="notes">
+                    <p>Repeat.  Moving slower now.</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-7.png">
+                <aside class="notes">
+                    <p>Repeat...</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-8.png">
+                <aside class="notes">
+                    <p>Repeat...</p>
+                </aside>
+            </section>
+            <section>
+                <img src="media/kmeans-9.png">
+                <aside class="notes">
+                    <p>Stop when cluster center points stop moving.</p>
+                    <p>Replace coordinates with any other set of numerical features.  Age, income, height, credit score, ...</p>
+                    <p>Replace Euclidean distance with any other distance measure.</p>
+                    <p>This algorithm did not need annotated data to learn from. Unsupervised learning.</p>
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <h4>Types of Machine Learning Algorithms</h4>
+            <section>
+                <img src="media/types_of_learning.png" width="800">
+            </section>
+            <aside class="notes">
+                <p>Guess what type of learning was K-means?</p>
+                <p>For each image, we extract features.  Break image to small pieces and extract shape, color, relationship between to each other.</p>
+                <p>Train model on extracted features.  Use labels if available.</p>
+                <p>The algorithms make simple decisions (class A or B?) based on its input.</p>
+                <p>A lot of problems can be solved using classification / clustering: spam filters, fraud detection, ...</p>
+                <p>Another group of problems: find item similar to this one: Recommender systems (Netflix).</p>
+                <p>Labelling data is expensive, but needed for some tasks.</p>
+                <p>Facebook uses your image tags to train its models.</p>
+            </aside>
+        </section>
+
+
+        <section>
+            <h4>Machine Learning at Sweetbridge</h4>
+            <section>
+                <h6>New applicant credit risk assessment</h6>
+                <p>Filter out high default risk ones.</p>
+                <img src="media/credit_risk.png" width="500" style="background:none; border:none; box-shadow:none;">
+                <aside class="notes">
+                    <p>Use application info, like country of residence, type of income, amount to pledge, ... and infer credit risk score.</p>
+                    <p>Current algorithm generated score falls within 10% of human calculated score.</p>
+                    <p>Future models could use browsing behavior and other user features to lower the risk of default.  Credit card companies do that to some degree.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Applicant identity verification</h6>
+                <p>Speed up screening and data collection process</p>
+                <p><img src="media/passport1.jpg" width="300" style="background:none; border:none; box-shadow:none;"></p>
+                <img src="media/passport2.png" width="300" style="background:none; border:none; box-shadow:none;">
+                <img src="media/passport3.png" width="300" style="background:none; border:none; box-shadow:none;">
+                <aside class="notes">
+                    <p>New applicants submit scanned copies of their identity documents.</p>
+                    <p>Our compliance officers match the applicant entered info against ID scans.  This can be automated.</p>
+                </aside>
+            </section>
+
+            <section>
+                <h6>Members Analytics</h6>
+                <ul>
+                    <li>Who are our members</li>
+                    <li>Types, volumes, frequency of Transactions?</li>
+                    <li>Concentration of risk?</li>
+                </ul>
+                <img src="media/analytics.jpg" width="400">
+                <aside class="notes">
+                    <p>Work will begin on this in the coming weeks.</p>
+                    <p>Understand our customers needs to build new products, fight fraud, marketing, ...</p>
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <h4>What is machine learning good at?</h4>
+            <section>
+                <h6>Some computer vision tasks</h6>
+                <p>Suspect identified among 60,000 crowd at concert in China.</p>
+                <img src="media/facial_recognition.jpg" width="550">
+                <aside class="notes">
+                    <p>CCTV cameras with facial recognition identified a man in 60,000 crowd in China.</p>
+                    <p>Very hard for a human to do due to large crowd.</p>
+                    <p>No info on false positives though.</p>
+                </aside>
+            </section>
+            <section>
+                <h6>Targeted advertising</h6>
+                <p>Kroger's 70+% redemption on customer specific coupons.</p>
+                <img src="media/coupons.jpg" width="550">
+                <aside class="notes">
+                    <p>Kroger (and others) create custom in-mail coupons offers at the customer level.</p>
+                    <p>Credit card companies target offers to specific potential applicants.</p>
+                </aside>
+            </section>
+            <section>
+                <h6>Narrow tasks it's designed for</h6>
+                <ul>
+                    <li>Identifying dog breeds in photos</li>
+                    <li>Targeted advertising</li>
+                    <li>Board games</li>
+                </ul>
+                <img src="media/data_input.jpg" width="550">
+                <aside class="notes">
+                    <p>Machine learning is good at narrow tasks it was designed and trained to do.</p>
+                    <p>It's not artificial general intelligence.</p>
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <h4>What isn't machine learning good at yet?</h4>
+            <section>
+                <h6>General intelligence tasks</h6>
+                <ul>
+                    <li>Generalization of problem solving</li>
+                    <li>Acting on input not seen before</li>
+                    <li>Reasoning</li>
+                </ul>
+                <img src="media/ml_tasks.png" width="550">
+                <aside class="notes">
+                    <p>Machine learning models need to train on large data sets before it's put to work.</p>
+                    <p>Cannot act well in new situations.</p>
+                    <p>Machines cannot reason like humans.</p>
+                </aside>
+            </section>
+        </section>
+    </section>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+			    transition: 'none',
+				dependencies: [
+				    { src: 'plugin/menu/menu.js' },
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/math/math.js', async: true }
+				]
+			});
+
+</script>
+</body>
+</html>

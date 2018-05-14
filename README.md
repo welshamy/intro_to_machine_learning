@@ -8,7 +8,7 @@ This presentation covers:
 - Machine learning at [Sweetbridge][swb]
 - What is machine learning good, and not good at?
 
-[Presentation slides][slides], his key `s` afte visiting the page to view presenter notes.
+[Presentation slides][slides], hit key `s` after visiting the page to view presenter notes.
 
 [slides]: https://welshamy.github.io/intro_to_machine_learning
 [swb]: https://sweetbridge.com/
